@@ -58,7 +58,7 @@ class _AddScreenState extends ConsumerState<AddScreen> {
                 margin: EdgeInsets.all(16.0),
                 width: 100,
                 height: 100,
-                child: Icon(Icons.camera_front_rounded),
+                child: image == null ? Icon(Icons.camera_front_rounded) : Image.file(image!),
                 decoration: BoxDecoration(color: Colors.white, boxShadow: [
                   BoxShadow(
                     blurRadius: 3.0,

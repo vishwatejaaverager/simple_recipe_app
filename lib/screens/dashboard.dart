@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:food/features/store_data/store_data_controller/store_data_controller.dart';
 import 'package:food/screens/add_steps_screen.dart';
+import 'package:food/screens/create_recipe_screen.dart';
 import 'package:food/screens/show_recipe_screen.dart';
 import 'package:food/utils/utils.dart';
 
@@ -15,16 +16,21 @@ class Dashboard extends ConsumerWidget {
     final ok = ref.watch(userDataProvider);
     return Scaffold(
       appBar: AppBar(
-        title: Text("dashboard"),
+        title: Text("recipe app"),
       ),
       body: SingleChildScrollView(
           child: ok.when(
               data: (data) {
-                return ShowRecipe(
-                    dishname: data!.dishName,
+                if (data != null) {
+                  return ShowRecipe(
+                    dishname: data.dishName,
                     Photo: data.photo,
+                    instructions: data.ingredients,
                     personalTouch: data.personaltouch,
-                    instructions: data.ingredients);
+                  );
+                } else {
+                  return Text("data");
+                }
               },
               error: (error, stackTrace) {
                 showSnackBar(context: context, content: error.toString());

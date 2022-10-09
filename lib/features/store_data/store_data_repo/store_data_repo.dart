@@ -41,6 +41,7 @@ class StoreDataRepo {
         ingredients: ingredients,
         personaltouch: personalTouch,
       );
+      
       await firestore.collection('users').doc(uid).set(user.toMap());
       Navigator.pushNamed(context, Dashboard.routename,);
     } catch (e) {

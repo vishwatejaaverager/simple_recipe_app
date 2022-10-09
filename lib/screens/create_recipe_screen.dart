@@ -20,7 +20,7 @@ class _CreateRecipeState extends State<CreateRecipe> {
         length: 3,
         child: Scaffold(
           appBar: AppBar(
-            title: Text("Create Recipe"),
+            title: Text("click "),
             bottom: TabBar(
               labelColor: Color.fromARGB(255, 39, 3, 45),
               unselectedLabelColor: Colors.grey,
